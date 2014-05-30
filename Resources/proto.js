@@ -149,10 +149,9 @@ var getPlot = function(dataSource){
 	});
 
 	var detailText = Ti.UI.createLabel({
-		text: dataSource.title,
+		text: imageList[0].plot,
 		font: {fontSize: 13},
-		width: "100%",
-		top: "50%"
+		width: "100%"
 	});
 	
 	var closeButton = Ti.UI.createLabel({
@@ -195,10 +194,9 @@ var getExtra = function(dataSource){
 	});
 
 	var detailText = Ti.UI.createLabel({
-		text: dataSource.title,
+		text: imageList[0].extra,
 		font: {fontSize: 13},
-		width: "100%",
-		top: "50%"
+		width: "100%"
 	});
 	
 	var closeButton = Ti.UI.createLabel({
@@ -212,7 +210,7 @@ var getExtra = function(dataSource){
 	});
 	
 	var closeWindow = function(){
-		extraWin.close({transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
+		detailWindow.close({transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 	};
 	
 	closeButton.addEventListener("click", closeWindow);
@@ -220,7 +218,7 @@ var getExtra = function(dataSource){
 	detailView.add(detailText);
 	detailWindow.add(detailView, detailBorder, detailText, closeButton);
 	
-	extraWin.open({transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
+	detailWindow.open({transition: Ti.UI.iPhone.AnimationStyle.CURL_UP});
 };
 
 for(var i=0; i<imageFiles.length; i++){
